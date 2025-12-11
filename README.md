@@ -117,12 +117,7 @@ This project is licensed under the MIT License. See the `LICENSE` file for detai
 We've got big plans, bigger vibes. Expect more features, more optimizations, and probably more "I use Arch, BTW" jokes. Stay tuned, stay Chad.
 
 ```
-                  _                                         _   
-                 | |                                       | |  
-__   _____      _| |__   __ _ _ __   __ _  ___ ___    __ _| |_ 
-\ \ / / _ \ \ /\ / / __| / _` | '_ \ / _` |/ __/ _ \  / _` | __|
- \ V /  __/\ V  V /| |_ | (_| | | | | (_| | (_|  __/ | (_| | |_ 
-  \_/ \___| \_/\_/  \__| \__,_|_| |_|\__, |\___\___|  \__,_|\__|
-                                      __/ |                     
-                                     |___/                      
+░░█░█░▀█▀░█▀▄░█▀▀░█▀▀░█░█░█▀█░█▀▄░░░░░█░█░▀█▀░█▀▄░▀▀█░░
+░░▀▄▀░░█░░█▀▄░█▀▀░█░░░█▀█░█▀█░█░█░▄▄▄░▀▄▀░░█░░█░█░▄▀░░░
+░░░▀░░▀▀▀░▀▀░░▀▀▀░▀▀▀░▀░▀░▀░▀░▀▀░░░░░░░▀░░▀▀▀░▀▀░░▀▀▀░░
 ```
