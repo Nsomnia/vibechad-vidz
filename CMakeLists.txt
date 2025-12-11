@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.20)
-project(vibechad VERSION 1.0.0 LANGUAGES CXX)
+project(vibechad-vidz VERSION 1.0.0 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -163,12 +163,12 @@ set(ALL_SOURCES
 )
 
 # Qt resources
-set(RESOURCES resources/vibechad.qrc)
+set(RESOURCES resources/vibechad-vidz.qrc)
 
 # Main executable
-add_executable(vibechad ${ALL_SOURCES} ${RESOURCES})
+add_executable(vibechad-vidz ${ALL_SOURCES} ${RESOURCES})
 
-target_include_directories(vibechad PRIVATE
+target_include_directories(vibechad-vidz PRIVATE
     ${CMAKE_SOURCE_DIR}/src
     ${SPDLOG_INCLUDE_DIRS}
     ${FMT_INCLUDE_DIRS}
@@ -180,7 +180,7 @@ target_include_directories(vibechad PRIVATE
     ${PROJECTM_INCLUDE_DIRS}
 )
 
-target_link_libraries(vibechad PRIVATE
+target_link_libraries(vibechad-vidz PRIVATE
     Qt6::Core
     Qt6::Gui
     Qt6::Widgets
@@ -196,13 +196,13 @@ target_link_libraries(vibechad PRIVATE
 )
 
 # Installation
-install(TARGETS vibechad DESTINATION bin)
-install(DIRECTORY config/ DESTINATION share/vibechad/config)
-install(FILES resources/vibechad.desktop DESTINATION share/applications)
-install(FILES resources/icons/vibechad.svg DESTINATION share/icons/hicolor/scalable/apps)
+install(TARGETS vibechad-vidz DESTINATION bin)
+install(DIRECTORY config/ DESTINATION share/vibechad-vidz/config)
+install(FILES resources/vibechad-vidz.desktop DESTINATION share/applications)
+install(FILES resources/icons/vibechad-vidz.svg DESTINATION share/icons/hicolor/scalable/apps)
 
 # CPack for packaging
-set(CPACK_PACKAGE_NAME "vibechad")
+set(CPACK_PACKAGE_NAME "vibechad-vidz")
 set(CPACK_PACKAGE_VERSION ${PROJECT_VERSION})
 set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Chad-tier audio visualizer for Arch Linux")
 include(CPack)

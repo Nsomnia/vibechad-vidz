@@ -2,30 +2,37 @@
   <img src="resources/icons/vibechad.svg" alt="vibechad logo" width="150"/>
 </p>
 
-<h1 align="center">VibeChad: The Only Audio Visualizer You'll Ever Need (Probably)</h1>
+<h1 align="center">vibechad-vidz: AI Music Video Creator & Automator</h1>
 
 <p align="center">
-  <a href="https://github.com/yourusername/vibechad/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/yourusername/vibechad/ci.yml?branch=main&label=Build%20Status&style=for-the-badge&logo=github" alt="Build Status"></a>
-  <a href="https://github.com/yourusername/vibechad/releases"><img src="https://img.shields.io/github/v/release/yourusername/vibechad?style=for-the-badge&label=Latest%20Release&logo=github" alt="Latest Release"></a>
+  <a href="https://github.com/Nsomnia/vibechad-vidz/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/Nsomnia/vibechad-vidz/ci.yml?branch=main&label=Build%20Status&style=for-the-badge&logo=github" alt="Build Status"></a>
+  <a href="https://github.com/Nsomnia/vibechad-vidz/releases"><img src="https://img.shields.io/github/v/release/Nsomnia/vibechad-vidz?style=for-the-badge&label=Latest%20Release&logo=github" alt="Latest Release"></a>
   <img src="https://img.shields.io/badge/Arch%20Linux-You%20know%20it-1793D1?style=for-the-badge&logo=arch-linux&logoColor=white" alt="Arch Linux">
-  <img src="https://img.shields.io/badge/C%2B%2B17-Modern%20C%2B%2B-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white" alt="C++17">
+  <img src="https://img.shields.io/badge/C%2B%2B20-Modern%20C%2B%2B-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white" alt="C++20">
 </p>
 
 <p align="center">
-  <i>"Hello, World!" but with more bass drops and fewer segfaults than your average dev bootcamp project.</i>
+  <i>The ultimate tool for AI music creators who want to automate dope, milkdrop-style music videos without the hassle.</i>
 </p>
 
 ---
 
-## 🎵 What is VibeChad?
+## 🎵 What is vibechad-vidz?
 
-VibeChad is not just *another* audio visualizer; it's *the* audio visualizer. Crafted with the discerning Arch Linux user in mind (because, let's be real, you wouldn't be here otherwise), VibeChad leverages the legendary ProjectM engine to deliver jaw-dropping, chad-tier visual experiences synchronized with your audio.
+`vibechad-vidz` is a music video creator and automator designed for the modern AI music creator. It's built on the legendary `ProjectM` visualization engine, giving you the power to create stunning, professional-looking music videos with a "leet" level of customization.
 
-Think of it as your digital rave buddy, but without the questionable life choices. Whether you're a streamer needing next-level aesthetics, a music enthusiast craving eye candy, or just someone who appreciates finely tuned software, VibeChad has your back.
+This isn't just another visualizer. `vibechad-vidz` is a full-fledged video creation pipeline, with features like:
+
+*   **Advanced ProjectM Integration:** We're not just using ProjectM, we're extending it. Get ready for framebuffer rendering, animated text, and more.
+*   **Karaoke-style Lyrics:** Integrate lyrics directly into your videos for that professional touch.
+*   **YouTube Pipeline:** A streamlined workflow to get your creations from your desktop to YouTube with minimal fuss.
+*   **Sleek, Modern UI:** A user interface designed for power users who appreciate a clean, efficient workflow.
+
+If you're tired of the AI slop and want to create something truly unique, `vibechad-vidz` is for you.
 
 ### ✨ Key Features (Because we don't do "basic")
 
-*   **ProjectM Integration:** Harness the full power of ProjectM for dynamic, psychedelic, and customizable visualizations. We didn't reinvent the wheel; we just put some sick rims on it.
+*   **Advanced ProjectM Integration:** Harness the full power of ProjectM for dynamic, psychedelic, and customizable visualizations. We didn't reinvent the wheel; we just put some sick rims on it.
 *   **Intuitive Qt6 UI:** A user interface so clean, your grandma could probably use it. But she won't, because she's too busy enjoying her vinyl collection.
 *   **Real-time Audio Analysis:** Analyzes your audio in real-time, feeding delicious data to ProjectM for visuals that actually react to your tunes, not just some pre-baked nonsense.
 *   **Overlay Engine:** Integrate text overlays. Because sometimes, you just need to drop some wisdom or memes on your visual output.
@@ -63,8 +70,8 @@ sudo pacman -S cmake qt6-base qt6-multimedia qt6-svg spdlog fmt taglib tomlplusp
 
 ```bash
 # Clone this repo (if you haven't already, peasant)
-git clone https://github.com/yourusername/vibechad.git
-cd vibechad
+git clone https://github.com/Nsomnia/vibechad-vidz.git
+cd vibechad-vidz
 
 # Build the beast
 mkdir build && cd build
@@ -77,12 +84,12 @@ sudo make install
 
 If `make install` gives you the cold shoulder, just run it from the `build` directory:
 ```bash
-./vibechad
+./vibechad-vidz
 ```
 
 ### 📦 Arch User Repository (AUR)
 
-For the truly enlightened, VibeChad might just land in the AUR eventually. Keep an eye out. Until then, compiling is character building.
+For the truly enlightened, `vibechad-vidz` might just land in the AUR eventually. Keep an eye out. Until then, compiling is character building.
 
 ---
 
