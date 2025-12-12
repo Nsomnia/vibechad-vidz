@@ -14,6 +14,8 @@ namespace vc {
 VisualizerWidget::VisualizerWidget(QWidget* parent)
     : QOpenGLWidget(parent)
 {
+    setAttribute(Qt::WA_OpaquePaintEvent);
+
     // Set OpenGL format
     QSurfaceFormat format;
     format.setVersion(3, 3);
@@ -76,11 +78,8 @@ void VisualizerWidget::initializeGL() {
     renderTarget_.create(width(), height());
     overlayTarget_.create(width(), height());
     
-    // Start render timer
-    targetFps_ = vizConfig.fps;
-    renderTimer_.setInterval(1000 / targetFps_);
+    // Connect render timer timeout
     connect(&renderTimer_, &QTimer::timeout, this, &VisualizerWidget::onTimer);
-    renderTimer_.start();
     
     fpsTimer_.start();
     
@@ -157,10 +156,14 @@ void VisualizerWidget::feedAudio(const f32* data, u32 frames, u32 channels) {
     projectM_.addPCMDataInterleaved(data, frames, channels);
 }
 
-void VisualizerWidget::setFPS(u32 fps) {
-    targetFps_ = fps;
-    renderTimer_.setInterval(1000 / fps);
-    projectM_.setFPS(fps);
+void VisualizerWidget::setRenderRate(int fps) {
+    if (fps > 0) {
+        targetFps_ = fps;
+        renderTimer_.start(1000 / fps);
+        projectM_.setFPS(fps);
+    } else {
+        renderTimer_.stop();
+    }
 }
 
 void VisualizerWidget::setRecordingSize(u32 width, u32 height) {

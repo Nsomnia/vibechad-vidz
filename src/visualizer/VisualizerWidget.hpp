@@ -35,12 +35,10 @@ public:
     bool isRecording() const { return recording_; }
     void startRecording();
     void stopRecording();
-    
-    // Audio input
+    void setRenderRate(int fps);
     void feedAudio(const f32* data, u32 frames, u32 channels);
-    
-    // Control
-    void setFPS(u32 fps);
+
+public slots:
     void toggleFullscreen();
     
 signals:

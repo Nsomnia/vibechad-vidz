@@ -9,6 +9,7 @@
 
 #include <QMainWindow>
 #include <QTimer>
+#include <functional>
 
 namespace vc {
 
@@ -73,6 +74,7 @@ private:
     
     void updateWindowTitle();
     void feedAudioToVisualizer();
+    void executeWithPausedRendering(std::function<void()> action);
     
     // Components
     std::unique_ptr<AudioEngine> audioEngine_;
