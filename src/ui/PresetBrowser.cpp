@@ -87,12 +87,13 @@ void PresetBrowser::setupUI() {
 }
 
 void PresetBrowser::refresh() {
-    updateCategories();
-    
     if (!presetManager_) {
         presetList_->clear();
         return;
     }
+    
+    // Update categories first (with signals blocked)
+    updateCategories();
     
     std::vector<const PresetInfo*> presets;
     
@@ -127,12 +128,44 @@ void PresetBrowser::scrollToCurrent() {
 
 void PresetBrowser::onSearchTextChanged(const QString& text) {
     searchQuery_ = text.toStdString();
-    refresh();
+    
+    // Don't call full refresh, just update the list
+    if (!presetManager_) return;
+    
+    std::vector<const PresetInfo*> presets;
+    if (!searchQuery_.empty()) {
+        presets = presetManager_->search(searchQuery_);
+    } else if (currentCategory_ == "__favorites__") {
+        presets = presetManager_->favoritePresets();
+    } else if (!currentCategory_.empty()) {
+        presets = presetManager_->byCategory(currentCategory_);
+    } else {
+        presets = presetManager_->activePresets();
+    }
+    
+    populateList(presets);
 }
 
 void PresetBrowser::onCategoryChanged(int index) {
+    if (index < 0) return;  // Ignore invalid index during clear
+    
     currentCategory_ = categoryCombo_->itemData(index).toString().toStdString();
-    refresh();
+    
+    // Don't call full refresh, just update the list
+    if (!presetManager_) return;
+    
+    std::vector<const PresetInfo*> presets;
+    if (currentCategory_ == "__favorites__") {
+        presets = presetManager_->favoritePresets();
+    } else if (!searchQuery_.empty()) {
+        presets = presetManager_->search(searchQuery_);
+    } else if (!currentCategory_.empty()) {
+        presets = presetManager_->byCategory(currentCategory_);
+    } else {
+        presets = presetManager_->activePresets();
+    }
+    
+    populateList(presets);
 }
 
 void PresetBrowser::onPresetDoubleClicked(QListWidgetItem* item) {
@@ -199,6 +232,10 @@ void PresetBrowser::populateList(const std::vector<const PresetInfo*>& presets) 
 void PresetBrowser::updateCategories() {
     if (!presetManager_) return;
     
+    // Block signals to prevent recursive calls
+    categoryCombo_->blockSignals(true);
+    
+    // Remember current selection
     QString current = categoryCombo_->currentData().toString();
     
     categoryCombo_->clear();
@@ -209,10 +246,14 @@ void PresetBrowser::updateCategories() {
         categoryCombo_->addItem(QString::fromStdString(cat), QString::fromStdString(cat));
     }
     
+    // Restore selection
     int idx = categoryCombo_->findData(current);
     if (idx >= 0) {
         categoryCombo_->setCurrentIndex(idx);
     }
+    
+    // Re-enable signals
+    categoryCombo_->blockSignals(false);
 }
 
 } // namespace vc
